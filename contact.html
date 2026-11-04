@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Kolehiyo ng Heneral Santos</title>
+  <meta name="description" content="Contact Kolehiyo ng Heneral Santos: Purok Maliwanag, Barangay Calumpang, General Santos City, office hours, email and Facebook page.">
+  <meta property="og:title" content="Contact — Kolehiyo ng Heneral Santos">
+  <meta property="og:description" content="Contact Kolehiyo ng Heneral Santos: Purok Maliwanag, Barangay Calumpang, General Santos City, office hours, email and Facebook page.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contact">
+  <div id="site-header"></div>
+
+  <header class="page-hero">
+    <div class="wrap-sm">
+      <p class="eyebrow">Contact</p>
+      <h1>Visit or write to us</h1>
+      <div class="bar"></div>
+      <p class="lead">The college holds office at Purok Maliwanag, Barangay Calumpang, General Santos City. Walk-in inquiries are welcome during office hours.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-tight">
+      <div class="wrap contact-grid">
+        <div>
+          <h2>Campus</h2>
+          <p class="icon-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span id="cAddress"></span></p>
+          <h3>Online</h3>
+          <p class="icon-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a id="cEmail" href="#"></a></p>
+          <p class="icon-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><a id="cFacebook" href="#" target="_blank" rel="noreferrer"></a></p>
+          <h3>Office hours</h3>
+          <p class="pre-line" id="cHours" style="font-size:14px;color:rgba(22,39,121,0.75)"></p>
+        </div>
+        <div>
+          <h2>Offices</h2>
+          <ul class="offices" id="cOffices"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-silver" id="message-us" style="scroll-margin-top:60px">
+      <div class="wrap-sm">
+        <div class="form-card">
+          <h2>Send us a message</h2>
+          <p class="sub">Questions about admissions, enrollment or scholarships? Send them here and the right office will reply by email.</p>
+          <form id="inquiryForm" novalidate>
+            <div class="fields two">
+              <div class="field" data-field="fullName">
+                <label for="iName">Full name <span class="req">*</span></label>
+                <input class="input" id="iName" name="fullName" type="text" autocomplete="name" maxlength="120" required>
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="email">
+                <label for="iEmail">Email <span class="req">*</span></label>
+                <input class="input" id="iEmail" name="email" type="email" autocomplete="email" maxlength="120" required>
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="phone">
+                <label for="iPhone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+                <input class="input" id="iPhone" name="phone" type="tel" autocomplete="tel" maxlength="20">
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="office">
+                <label for="office">Send to <span class="req">*</span></label>
+                <select class="select" id="office" name="office" required></select>
+                <div class="err"></div>
+              </div>
+              <div class="field full" data-field="subject">
+                <label for="iSubject">Subject <span class="req">*</span></label>
+                <input class="input" id="iSubject" name="subject" type="text" maxlength="150" required>
+                <div class="err"></div>
+              </div>
+              <div class="field full" data-field="message">
+                <label for="iMessage">Message <span class="req">*</span></label>
+                <textarea class="textarea" id="iMessage" name="message" maxlength="2000" required></textarea>
+                <div class="err"></div>
+              </div>
+              <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            </div>
+            <div class="form-msg error" hidden role="alert"></div>
+            <div style="margin-top:1.5rem">
+              <button type="submit" class="btn btn-navy">Send message <span class="dot"></span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/forms.js"></script>
+</body>
+</html>

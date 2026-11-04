@@ -1,0 +1,6 @@
+# applicant data and admin password hash must never be committed
+data/*.json
+data/*.tmp
+node_modules/
+data/uploads/*
+!data/uploads/.gitkeep

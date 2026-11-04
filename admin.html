@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Portal — Kolehiyo ng Heneral Santos</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- ============ Loading ============ -->
+  <div id="viewLoading" class="center-screen"><p class="mono" style="font-size:12px;color:var(--navy-40)">Loading…</p></div>
+
+  <!-- ============ Login / first-time setup ============ -->
+  <div id="viewAuth" class="center-screen" hidden>
+    <div class="auth-card">
+      <img src="images/seal.png" alt="" width="72" height="72" class="auth-seal">
+      <p class="eyebrow" style="text-align:center;margin-bottom:0.5rem">Staff access</p>
+      <h1 id="authTitle" class="font-display auth-title">Admin Portal</h1>
+      <div class="bar" style="margin:0.75rem auto 1.25rem"></div>
+
+      <div id="modeBanner" class="banner" hidden></div>
+
+      <!-- sign in -->
+      <form id="loginForm" novalidate>
+        <div class="field" style="margin-bottom:1rem">
+          <label for="lUser">Username</label>
+          <input class="input" id="lUser" type="text" value="admin" autocomplete="username" required>
+        </div>
+        <div class="field" style="margin-bottom:1rem">
+          <label for="lPass">Password</label>
+          <div class="pw-wrap">
+            <input class="input" id="lPass" type="password" autocomplete="current-password" required>
+            <button type="button" class="pw-toggle" data-toggle="lPass" aria-label="Show password">Show</button>
+          </div>
+        </div>
+        <div class="form-msg error" id="loginErr" hidden role="alert"></div>
+        <button type="submit" class="btn btn-navy" style="width:100%;margin-top:0.5rem">Sign in <span class="dot"></span></button>
+      </form>
+
+      <!-- first-time setup -->
+      <form id="setupForm" novalidate hidden>
+        <p style="font-size:13px;color:var(--navy-70);margin-bottom:1rem">No admin account exists yet. Create a password for the username <strong>admin</strong>. Use at least 8 characters.</p>
+        <div class="field" style="margin-bottom:1rem">
+          <label for="sPass">New password</label>
+          <div class="pw-wrap">
+            <input class="input" id="sPass" type="password" autocomplete="new-password" minlength="8" required>
+            <button type="button" class="pw-toggle" data-toggle="sPass" aria-label="Show password">Show</button>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:1rem">
+          <label for="sPass2">Confirm password</label>
+          <input class="input" id="sPass2" type="password" autocomplete="new-password" required>
+        </div>
+        <div class="form-msg error" id="setupErr" hidden role="alert"></div>
+        <button type="submit" class="btn btn-navy" style="width:100%;margin-top:0.5rem">Create admin account <span class="dot"></span></button>
+      </form>
+
+      <p style="text-align:center;margin-top:1.5rem;font-size:12px"><a href="index.html" style="color:var(--navy-65);border-bottom:1px solid var(--gold)">← Back to website</a></p>
+    </div>
+  </div>
+
+  <!-- ============ Dashboard ============ -->
+  <div id="viewDash" hidden>
+    <header class="dash-top">
+      <div class="dash-top-inner">
+        <a href="index.html" class="brand" title="View website">
+          <img src="images/favicon.png" alt="" width="36" height="36">
+          <span style="max-width:none">Kolehiyo ng Heneral Santos<br><small>Admin Portal</small></span>
+        </a>
+        <div class="dash-actions">
+          <span id="modeBadge" class="badge"></span>
+          <a class="btn btn-outline small" href="index.html" target="_blank" rel="noopener">View website ↗</a>
+          <button class="btn btn-outline small" id="btnRefresh" type="button">Refresh</button>
+          <button class="btn btn-outline small" id="btnExport" type="button">Export CSV</button>
+          <button class="btn btn-outline small" id="btnPw" type="button">Password</button>
+          <button class="btn btn-navy small" id="btnLogout" type="button">Log out</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash-main">
+      <div id="dashBanner" class="banner" hidden></div>
+
+      <nav class="tabs" id="tabs" aria-label="Admin sections">
+        <button type="button" data-tab="submissions" class="active">Submissions <span class="tab-badge" id="tabNewBadge" hidden>0</span></button>
+        <button type="button" data-tab="photos">Photos</button>
+        <button type="button" data-tab="courses">Courses</button>
+        <button type="button" data-tab="bulletin">Bulletin</button>
+        <button type="button" data-tab="contact">Contact</button>
+        <button type="button" data-tab="about">About</button>
+      </nav>
+
+      <div id="tab-submissions">
+      <!-- stats -->
+      <section class="stats" aria-label="Summary">
+        <div class="stat"><div class="k">Total submissions</div><div class="n" id="stTotal">0</div></div>
+        <div class="stat accent"><div class="k">New (unread)</div><div class="n" id="stNew">0</div></div>
+        <div class="stat"><div class="k">Applications</div><div class="n" id="stApps">0</div></div>
+        <div class="stat"><div class="k">Inquiries</div><div class="n" id="stInq">0</div></div>
+        <div class="stat"><div class="k">Today</div><div class="n" id="stToday">0</div></div>
+      </section>
+
+      <!-- program breakdown -->
+      <section class="panel" id="programPanel">
+        <h2 class="panel-title">Applications by first-choice program</h2>
+        <div id="programBars"></div>
+      </section>
+
+      <!-- filters -->
+      <section class="panel">
+        <div class="filters">
+          <div class="field grow">
+            <label for="fSearch">Search</label>
+            <input class="input" id="fSearch" type="search" placeholder="Name, email, reference…">
+          </div>
+          <div class="field">
+            <label for="fType">Type</label>
+            <select class="select" id="fType">
+              <option value="">All</option>
+              <option value="application">Applications</option>
+              <option value="inquiry">Inquiries</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fStatus">Status</label>
+            <select class="select" id="fStatus">
+              <option value="">All</option>
+              <option value="new">New</option>
+              <option value="in-review">In review</option>
+              <option value="contacted">Contacted</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fProgram">Program</label>
+            <select class="select" id="fProgram"><option value="">All</option></select>
+          </div>
+          <div class="field">
+            <label for="fSort">Sort</label>
+            <select class="select" id="fSort">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead>
+              <tr><th>Reference</th><th>Type</th><th>Name</th><th>Email</th><th>Program / Subject</th><th>Submitted</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <p id="emptyMsg" class="empty" hidden>No submissions match your filters yet.</p>
+        <p class="count mono" id="countLine"></p>
+      </section>
+      </div><!-- /tab-submissions -->
+
+      <!-- website content editor (Photos / Courses / Bulletin / Contact / About) -->
+      <div id="tab-editor" hidden>
+        <div id="editorHost" class="editor"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============ Detail dialog ============ -->
+  <dialog id="detailDlg" class="dlg">
+    <div class="dlg-head">
+      <div>
+        <p class="eyebrow" id="dType"></p>
+        <h2 class="font-display" id="dTitle" style="font-size:1.5rem"></h2>
+      </div>
+      <button type="button" class="dlg-x" data-close aria-label="Close">×</button>
+    </div>
+    <div class="dlg-body">
+      <dl class="detail" id="dFields"></dl>
+      <div class="field" style="margin-top:1.25rem">
+        <label for="dStatus">Status</label>
+        <select class="select" id="dStatus">
+          <option value="new">New</option>
+          <option value="in-review">In review</option>
+          <option value="contacted">Contacted</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+      <div class="field" style="margin-top:1rem">
+        <label for="dNotes">Internal notes <span style="font-weight:400;text-transform:none;letter-spacing:0">(only staff can see this)</span></label>
+        <textarea class="textarea" id="dNotes" maxlength="2000"></textarea>
+      </div>
+      <div class="form-msg error" id="dErr" hidden role="alert"></div>
+    </div>
+    <div class="dlg-foot">
+      <button type="button" class="btn btn-outline small danger-btn" id="dDelete">Delete</button>
+      <span style="flex:1"></span>
+      <a class="btn btn-outline small" id="dMail" href="#">Reply by email</a>
+      <button type="button" class="btn btn-navy small" id="dSave">Save changes</button>
+    </div>
+  </dialog>
+
+  <!-- ============ Password dialog ============ -->
+  <dialog id="pwDlg" class="dlg" style="max-width:26rem">
+    <form id="pwForm" novalidate>
+      <div class="dlg-head">
+        <h2 class="font-display" style="font-size:1.35rem">Change password</h2>
+        <button type="button" class="dlg-x" data-close aria-label="Close">×</button>
+      </div>
+      <div class="dlg-body">
+        <div class="field" style="margin-bottom:1rem"><label for="pCur">Current password</label><input class="input" id="pCur" type="password" autocomplete="current-password" required></div>
+        <div class="field" style="margin-bottom:1rem"><label for="pNew">New password (min. 8 characters)</label><input class="input" id="pNew" type="password" autocomplete="new-password" minlength="8" required></div>
+        <div class="field"><label for="pNew2">Confirm new password</label><input class="input" id="pNew2" type="password" autocomplete="new-password" required></div>
+        <div class="form-msg error" id="pErr" hidden role="alert"></div>
+      </div>
+      <div class="dlg-foot">
+        <span style="flex:1"></span>
+        <button type="button" class="btn btn-outline small" data-close>Cancel</button>
+        <button type="submit" class="btn btn-navy small">Update password</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

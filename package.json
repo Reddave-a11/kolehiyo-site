@@ -1,0 +1,14 @@
+{
+  "name": "kolehiyo-ng-heneral-santos",
+  "version": "1.0.0",
+  "description": "Website for Kolehiyo ng Heneral Santos with application form and admin dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

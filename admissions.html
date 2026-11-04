@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admissions — Kolehiyo ng Heneral Santos</title>
+  <meta name="description" content="How to apply to Kolehiyo ng Heneral Santos: requirements, entrance examination schedule and enrollment steps for Academic Year 2026–2027.">
+  <meta property="og:title" content="Admissions — Kolehiyo ng Heneral Santos">
+  <meta property="og:description" content="How to apply to Kolehiyo ng Heneral Santos: requirements, entrance examination schedule and enrollment steps for Academic Year 2026–2027.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="admissions">
+  <div id="site-header"></div>
+
+  <header class="page-hero">
+    <div class="wrap-sm">
+      <p class="eyebrow">Admissions 2026</p>
+      <h1>Applications are open</h1>
+      <div class="bar"></div>
+      <p class="lead">Kolehiyo ng Heneral Santos is tuition-free for qualified residents of General Santos City. Slots per program are limited, so complete your requirements early.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-tight">
+      <div class="wrap-sm">
+        <h2 class="h2" style="margin-bottom:2rem">Application Steps</h2>
+        <ol class="steps" id="steps"></ol>
+      </div>
+    </section>
+
+    <section class="section section-silver">
+      <div class="wrap-sm">
+        <h2 class="h2" style="margin-bottom:0.5rem">Requirements</h2>
+        <div class="bar" style="margin-bottom:2rem"></div>
+        <ul class="reqs" id="reqs"></ul>
+      </div>
+    </section>
+
+    <section class="section-tight" id="apply" style="scroll-margin-top:60px">
+      <div class="wrap-sm">
+        <div class="form-card">
+          <h2>Online Application Form</h2>
+          <p class="sub">Fill out the form below. The Office of Admissions will review it and contact you. Fields marked <span style="color:var(--danger)">*</span> are required.</p>
+
+          <form id="applyForm" novalidate autocomplete="on">
+            <div class="fields two">
+              <div class="field full" data-field="fullName">
+                <label for="fullName">Full name <span class="req">*</span></label>
+                <input class="input" id="fullName" name="fullName" type="text" autocomplete="name" maxlength="120" placeholder="Last name, First name, Middle name" required>
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="email">
+                <label for="email">Email <span class="req">*</span></label>
+                <input class="input" id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com" required>
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="phone">
+                <label for="phone">Mobile number <span class="req">*</span></label>
+                <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" maxlength="20" placeholder="09XX XXX XXXX" required>
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="birthdate">
+                <label for="birthdate">Date of birth <span class="req">*</span></label>
+                <input class="input" id="birthdate" name="birthdate" type="date" autocomplete="bday" required>
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="resident">
+                <span class="lbl">Resident of General Santos City? <span class="req">*</span></span>
+                <div class="radio-row">
+                  <label><input type="radio" name="resident" value="Yes"> Yes</label>
+                  <label><input type="radio" name="resident" value="No"> No</label>
+                </div>
+                <div class="err"></div>
+              </div>
+              <div class="field full" data-field="address">
+                <label for="address">Home address <span class="req">*</span></label>
+                <input class="input" id="address" name="address" type="text" autocomplete="street-address" maxlength="200" placeholder="Purok / Street, Barangay, City" required>
+                <div class="err"></div>
+              </div>
+              <div class="field full" data-field="lastSchool">
+                <label for="lastSchool">Last school attended <span class="req">*</span></label>
+                <input class="input" id="lastSchool" name="lastSchool" type="text" maxlength="150" placeholder="Name of Senior High School" required>
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="program">
+                <label for="program">First choice program <span class="req">*</span></label>
+                <select class="select" id="program" name="program" required>
+                  <option value="">Select a program…</option>
+                </select>
+                <div class="err"></div>
+              </div>
+              <div class="field" data-field="program2">
+                <label for="program2">Second choice <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+                <select class="select" id="program2" name="program2">
+                  <option value="">None</option>
+                </select>
+                <div class="err"></div>
+              </div>
+              <div class="field full" data-field="message">
+                <label for="message">Message <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+                <textarea class="textarea" id="message" name="message" maxlength="1000" placeholder="Anything the Admissions Office should know?"></textarea>
+                <div class="err"></div>
+              </div>
+
+              <!-- spam trap: hidden from people, bots tend to fill it -->
+              <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+              <div class="field full" data-field="consent">
+                <label class="check" style="text-transform:none;letter-spacing:0;font-weight:400;font-size:13px;color:rgba(22,39,121,0.8)">
+                  <input type="checkbox" name="consent" id="consent">
+                  <span>I agree that the college may collect and use the information above to process my application, in line with the Data Privacy Act of 2012.</span>
+                </label>
+                <div class="err"></div>
+              </div>
+            </div>
+
+            <div class="form-msg error" hidden role="alert"></div>
+            <div style="margin-top:1.5rem">
+              <button type="submit" class="btn btn-navy">Submit application <span class="dot"></span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-navy">
+      <div class="wrap-sm">
+        <h2 class="h2" style="margin-bottom:1rem">Key Dates</h2>
+        <dl class="dates" id="dates"></dl>
+        <a href="contact.html" class="btn btn-outline-light" style="margin-top:2.5rem">Ask the Admissions Office</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/forms.js"></script>
+</body>
+</html>

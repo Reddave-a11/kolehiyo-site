@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kolehiyo ng Heneral Santos — City College of General Santos</title>
+  <meta name="description" content="Kolehiyo ng Heneral Santos is the city college of General Santos, established 2025. Learning Without Limits, Growing Without Bounds.">
+  <meta property="og:title" content="Kolehiyo ng Heneral Santos — City College of General Santos">
+  <meta property="og:description" content="Kolehiyo ng Heneral Santos is the city college of General Santos, established 2025. Learning Without Limits, Growing Without Bounds.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+
+  <main>
+    <header class="hero" id="heroBanner">
+      <div class="hero-inner">
+        <div class="seal seal-anim">
+          <img src="images/seal.png" alt="Official seal of Kolehiyo ng Heneral Santos" width="176" height="176">
+        </div>
+        <div class="enter" style="animation-delay:200ms">
+          <h1 class="font-display">Kolehiyo ng <br>Heneral Santos</h1>
+          <p class="tagline">Learning Without Limits <i>/</i> Growing Without Bounds</p>
+          <div class="hero-btns">
+            <a href="admissions.html#apply" class="btn btn-gold">Admissions 2026 <span class="dot"></span></a>
+            <a href="programs.html" class="btn btn-ghost">Our Programs</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="strip">
+      <div class="strip-scroll enter" style="animation-delay:400ms">
+        <div class="strip-inner">
+          <div><div class="k">LOCATION</div><div class="v">Tuna Capital of the PH</div></div>
+          <div><div class="k">TUITION</div><div class="v">Free for Gensan Youth</div></div>
+          <div><div class="k">FOUNDING</div><div class="v">Class of 2025 Opening</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Academic Pillars</h2>
+          <span class="eyebrow" style="letter-spacing:0.1em">Select Tracks</span>
+        </div>
+        <div class="grid-2" id="pillars"></div>
+        <a href="programs.html" class="link-under">All programs</a>
+      </div>
+    </section>
+
+    <!-- Shown when a main campus photo is set (Admin Portal → Photos) -->
+    <section class="section" id="campusPhoto" hidden style="padding-top:0">
+      <div class="wrap">
+        <figure class="campus-photo">
+          <img id="campusImg" alt="Students and faculty of Kolehiyo ng Heneral Santos in front of the main campus building" width="1600" height="900" loading="lazy">
+          <figcaption id="campusCaption"></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-silver">
+      <div class="wrap">
+        <div class="title-bar">
+          <h2 class="h2">Bulletin</h2>
+          <div class="bar" style="margin-top:0.5rem"></div>
+        </div>
+        <div class="stack" id="bulletin"></div>
+        <a href="news.html" class="link-under">Read the bulletin</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
